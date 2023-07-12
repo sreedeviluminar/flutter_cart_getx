@@ -1,6 +1,6 @@
-import 'package:cart_app_getx/model/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import '../model/product.dart';
 import '../view/screen/cart_screen.dart';
 
 class ProductController extends GetxController {

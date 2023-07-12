@@ -1,5 +1,5 @@
-import 'package:cart_app_getx/view/screen/product_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cart_getx/view/screen/product_list_screen.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 

@@ -1,9 +1,9 @@
-import 'package:cart_app_getx/view/screen/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/product_controller.dart';
 import '../../model/product.dart';
 import '../../until/constants.dart';
+import '../screen/product_detail_screen.dart';
 
 final ProductController controller = Get.put(ProductController());
 
