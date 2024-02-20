@@ -8,7 +8,6 @@ import '../widget/product_list_view.dart';
 final ProductController controller = Get.put(ProductController());
 
 class ProductListScreen extends StatelessWidget {
-  const ProductListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class ProductListScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Item list"),
       ),
-      body: const ProductListView(),
+      body:  ProductListView(),
     );
   }
 }

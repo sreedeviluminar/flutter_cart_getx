@@ -17,7 +17,7 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(image),
+            Image.asset(image,height: 200,),
             const SizedBox(height: 20),
             Text(
               name,

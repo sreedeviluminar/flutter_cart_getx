@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../controller/product_controller.dart';
 import '../../model/product.dart';
 import '../../until/constants.dart';
@@ -8,10 +9,7 @@ import '../screen/product_detail_screen.dart';
 final ProductController controller = Get.put(ProductController());
 
 class ProductListView extends StatelessWidget {
-  const ProductListView();
-
-  Widget countButton(int index, void Function(int index) counter,
-      {IconData icon = Icons.add}) {
+  Widget countButton(int index, void Function(int index) counter, {IconData icon = Icons.add}) {
     return RawMaterialButton(
       onPressed: () {
         counter(index);
@@ -32,7 +30,8 @@ class ProductListView extends StatelessWidget {
     Widget listViewBody(Product item, int index) {
       return GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (_) {
+          Navigator.push(context,
+            MaterialPageRoute(builder: (_) {
             return ProductDetailScreen(item.name,item.image);
           },),);
         },
@@ -40,7 +39,9 @@ class ProductListView extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 20),
-              Image.asset(item.image, fit: BoxFit.contain, width: 60),
+              Image.asset(item.image,
+                  fit: BoxFit.contain,
+                  width: 60),
               const SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +55,8 @@ class ProductListView extends StatelessWidget {
               Row(
                 children: [
                   countButton(index, controller.increase),
-                  Obx(() => Text(controller.allProducts[index].count.toString())),
+                  Obx(() =>
+                      Text(controller.allProducts[index].count.toString())),
                   countButton(index, controller.decrease, icon: Icons.remove)
                 ],
               )

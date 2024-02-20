@@ -28,7 +28,7 @@ class CartScreen extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const Expanded(child: ProductListView()),
+             Expanded(child: ProductListView()),
             SizedBox(
               height: 70,
               child: Column(
