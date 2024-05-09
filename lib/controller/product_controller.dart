@@ -6,7 +6,7 @@ import '../view/screen/cart_screen.dart';
 class ProductController extends GetxController {
   RxList<Product> allProducts = productList.obs;
   bool isItemListScreen = true;
-  bool isCartScreen = false;
+  bool isCartScreen = false; // initial page will not be cart screen so its value false
   Rx<int> itemCount = 0.obs;
   Rx<double> price = 0.0.obs;
 
@@ -28,7 +28,9 @@ class ProductController extends GetxController {
     price.value = 0.0;
     for (var element in allProducts) {
       if (element.count > 0) {
-        price.value = (double.parse(element.price.replaceAll("\$", "").trim()) * element.count) +
+        price.value = (double.parse(
+            element.price.replaceAll("\$", "").trim())
+               * element.count) +
             price.value;
       }
     }
@@ -55,18 +57,20 @@ class ProductController extends GetxController {
       calculatePrice();
     }
   }
-
   void removeItems(){
-    for(var item in allProducts)
+    for(var item in allProducts) {
       item.count = 0;
+    }
     allProducts.refresh();
     itemCount.value = 0;
     calculatePrice();
   }
 
-
   VoidCallback? isCheckOutButtonEnabled(){
-    if(itemCount>0) return (){};
+    if(itemCount > 0) {
+      return () {};
+    }
     return null;
   }
 }
+//list_name.refresh(); update list item and refresh ui

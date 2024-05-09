@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/product_controller.dart';
-import '../../until/constants.dart';
+import '../../util/constants.dart';
 import '../widget/product_list_view.dart';
 
 final ProductController controller = Get.put(ProductController());

@@ -3,27 +3,26 @@ import 'package:get/get.dart';
 
 import '../../controller/product_controller.dart';
 import '../../model/product.dart';
-import '../../until/constants.dart';
+import '../../util/constants.dart';
 import '../screen/product_detail_screen.dart';
-
 final ProductController controller = Get.put(ProductController());
-
 class ProductListView extends StatelessWidget {
-  Widget countButton(int index, void Function(int index) counter, {IconData icon = Icons.add}) {
+  Widget countButton(int index,
+      void Function(int index) counter,
+      {IconData icon = Icons.add}) {
     return RawMaterialButton(
       onPressed: () {
         counter(index);
       },
       elevation: 2.0,
       fillColor: Colors.white,
+      shape: const CircleBorder(),
       child: Icon(
         icon,
         size: 15,
       ),
-      shape: const CircleBorder(),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ class ProductListView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(item.name, style: kItemNameStyle),
-                  Text(item.color, style: kItemColorStyle),
+                  Text(item.description, style: kItemColorStyle),
                   Text(item.price, style: kItemPriceStyle),
                 ],
               ),
@@ -68,7 +67,7 @@ class ProductListView extends StatelessWidget {
     return ListView.builder(
       padding: const EdgeInsets.all(15),
       itemCount: controller.allProducts.length,
-      itemBuilder: (_, index) {
+      itemBuilder: (context, index) {
         Product item = controller.allProducts[index];
         if (controller.isItemListScreen) {
           return listViewBody(item, index);
